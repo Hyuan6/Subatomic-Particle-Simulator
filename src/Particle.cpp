@@ -27,8 +27,6 @@ double Particle::getCharge(){
     return charge;
 }
 
-
-
 void Particle::setPosition(double x, double y, double z){
    position = glm::vec4(x,y,z,1);
 }
@@ -51,6 +49,9 @@ void Particle::setData(){
     std::unordered_map<std::string, double> data = db->get(particleType);
 
     radius = data["radius"];
+    radiusMagnitude = data["radiusMag"];
     mass = data["mass"];
+    massMagnitude = data["massMag"];
     charge = data["charge"];
+    chargeMagnitude = data["chargeMag"];
 }

@@ -23,9 +23,11 @@ public:
 
 private:
     double radius;
+    double radiusMagnitude;
     double mass;
+    double massMagnitude;
     double charge;
-    int generalMultiplier;
+    double chargeMagnitude;
 
     Database* db;
     std::string particleType;

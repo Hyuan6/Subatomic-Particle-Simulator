@@ -28,8 +28,6 @@ std::unordered_map<std::string, double> Database::get(std::string s){
     auto pos = storage.find(s);
     if(pos != storage.end()){
         return storage[s];
-    }else{
-        return NULL;
     }
 }
 void Database::write(std::string s, std::unordered_map<std::string, double> data){
@@ -66,12 +64,18 @@ void Database::readDb(){
 
         std::string particleType = items[0];
         double radius = atof(items[1].c_str());
-        double mass = atof(items[2].c_str());
-        double charge = atof(items[3].c_str());
+        double radiusMag = atof(items[2].c_str());
+        double mass = atof(items[3].c_str());
+        double massMag = atof(items[4].c_str());
+        double charge = atof(items[5].c_str());
+        double chargeMag = atof(items[6].c_str());
 
         data["radius"] = radius;
+        data["radiusMag"] = radiusMag;
         data["mass"] = mass;
+        data["massMag"] = massMag;
         data["charge"] = charge;
+        data["chargeMag"] = chargeMag;
 
 		storage.insert({particleType, data});
 	}
